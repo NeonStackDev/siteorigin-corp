@@ -1,0 +1,139 @@
+.site-footer {
+	background: $color__footer-background;
+	margin-top: $footer__margin;
+
+	.no-footer-margin & {
+		margin-top: 0;
+	}
+
+	.widgets {
+		@include clearfix;
+		padding: $footer__padding 0;
+		width: 100%;
+
+		@for $i from 1 through 10 {
+			$margin: ($i - 1) * 2.75;
+			&.widgets-#{$i} .widget {
+				width: (100% - $margin) / $i;
+			}
+		}
+
+		.widget {
+			box-sizing: content-box;
+			color: $color__footer-widget-text;
+			float: left;
+			margin: 0;
+			margin-right: 2.75%;
+
+			.wp-block-group__inner-container :is(h1, h2, h3, h4, h5, h6),
+			.widget-title {
+				color: $color__footer-widget-title;
+				font-size: 1.0666em;
+				font-weight: 500;
+			}
+
+			a {
+				color: $color__footer-widget-link;
+
+				&:hover {
+					color: $color__footer-widget-link-hover;
+				}
+			}
+
+			input {
+				min-width: initial;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			@media (max-width: 768px) {
+				float: none;
+				margin-bottom: 6%;
+				width: 100% !important;
+			}
+		}
+	}
+
+	.site-info {
+		font-size: 13px;
+		text-align: left;
+
+		span {
+
+			&:after {
+				content: "\002d";
+				display: inline-block;
+				padding: 0 5px;
+			}
+
+			&:last-of-type {
+
+				&:after {
+					content: none;
+				}
+			}
+		}
+
+		@media (max-width: 768px) {
+			float: none;
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.bottom-bar {
+		background: $color__bottom-bar-background;
+		color: $color__bottom-bar-text;
+		overflow: auto;
+		padding: $bottom__bar-padding 0;
+
+		a {
+			color: $color__bottom-bar-link;
+
+			&:hover {
+				color: $color__bottom-bar-link-hover;
+			}
+		}
+
+		.corp-container {
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			-webkit-box-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			width: 100%;
+
+			@media (max-width: 768px) {
+				flex-direction: column;
+			}
+
+			div:only-of-type {
+				float: none;
+				text-align: center;
+				width: 100%;
+			}
+		}
+
+		.widget {
+			display: inline-block;
+			margin: 0 0 0 15px;
+
+			@media (max-width: 768px) {
+				margin: 0;
+				padding-top: 15px;
+				text-align: center;
+				width: 100%;
+			}
+
+			.widgettitle {
+				display: none;
+			}
+		}
+	}
+}
